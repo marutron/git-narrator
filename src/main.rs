@@ -5,13 +5,10 @@ use std::env;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Получаем аргументы командной строки
     let args: Vec<String> = env::args().collect();
-    if args.len() != 3 {
-        eprintln!("Usage: {} <repo_path> <merge_commit_sha>", args[0]);
-        std::process::exit(1);
-    }
 
-    let repo_path = &args[1];
-    let merge_commit_sha = &args[2];
+    let repo_path = "/home/marat/repo/git-narrator/.git";
+    let merge_commit_sha = "4edfa4c6c17487d82b0a1e556e522146d5b03396";
+    let merge_commit_sha = "72aa2a3923617f0154164908bab979336c0a81a7";
 
     process_merge_commit(repo_path, merge_commit_sha)?;
 
@@ -46,6 +43,7 @@ fn process_merge_commit(repo_path: &str, merge_commit_sha: &str) -> Result<(), B
 
     for oid in revwalk {
         let oid = oid?;
+        println!("{:?}", oid);
         let commit = repo.find_commit(oid)?;
 
         // Обработка коммитов по шаблону
