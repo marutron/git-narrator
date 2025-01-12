@@ -7,7 +7,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
 
     let repo_path = "/home/marat/repo/git-narrator/.git";
-    let merge_commit_sha = "4edfa4c6c17487d82b0a1e556e522146d5b03396";
     let merge_commit_sha = "72aa2a3923617f0154164908bab979336c0a81a7";
 
     process_merge_commit(repo_path, merge_commit_sha)?;
